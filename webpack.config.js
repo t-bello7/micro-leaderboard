@@ -28,7 +28,4 @@ module.exports = {
     port: 9000,
   },
   mode: 'development',
-  experiments: {
-    topLevelAwait: true,
-  },
 };
