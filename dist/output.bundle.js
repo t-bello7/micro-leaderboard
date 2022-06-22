@@ -114,9 +114,19 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {\n__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _assets_css_style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./assets/css/style.css */ \"./src/assets/css/style.css\");\n/* harmony import */ var _modules_data_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/data.js */ \"./src/modules/data.js\");\n/* eslint-disable import/extensions */\r\n\r\n\r\n\r\nconst scoreForm = document.querySelector('#score-form');\r\nconst scoreContainer = document.querySelector('.score-container');\r\nconst refershBtn = document.querySelector('#refresh-btn');\r\n\r\nconst renderElements = (arr, container) => {\r\n  container.innerHTML = '';\r\n  arr.forEach((element) => {\r\n    container.innerHTML += `<li>${element.user}:  ${element.score}</li>`;\r\n  });\r\n};\r\n\r\nconst refreshScore = async (id) => {\r\n  let scoreArr = await (0,_modules_data_js__WEBPACK_IMPORTED_MODULE_1__.getScores)(id);\r\n  scoreArr = scoreArr.result;\r\n  renderElements(scoreArr, scoreContainer);\r\n};\r\n\r\nlet id = await (0,_modules_data_js__WEBPACK_IMPORTED_MODULE_1__.createGame)('game');\r\nid = id.result.slice(14, 34);\r\nid = 'DvwYcdsHxMwdVNMHWcIf';\r\n\r\nscoreForm.addEventListener('submit', async (e) => {\r\n  const user = scoreForm.elements.name.value;\r\n  const score = scoreForm.elements.score.value;\r\n  await (0,_modules_data_js__WEBPACK_IMPORTED_MODULE_1__.createScore)(id, user, score);\r\n  e.preventDefault();\r\n});\r\n\r\nrefreshScore(id);\r\nrefershBtn.addEventListener('click', () => {\r\n  refreshScore(id);\r\n});\r\n\n__webpack_async_result__();\n} catch(e) { __webpack_async_result__(e); } }, 1);\n\n//# sourceURL=webpack://micro-leaderboard/./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/modules/data.js":
+/*!*****************************!*\
+  !*** ./src/modules/data.js ***!
+  \*****************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _assets_css_style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./assets/css/style.css */ \"./src/assets/css/style.css\");\n/* eslint-disable import/extensions */\n\n\n//# sourceURL=webpack://micro-leaderboard/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"createGame\": () => (/* binding */ createGame),\n/* harmony export */   \"createScore\": () => (/* binding */ createScore),\n/* harmony export */   \"getScores\": () => (/* binding */ getScores)\n/* harmony export */ });\nconst baseUrl = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/';\r\n\r\nconst createGame = async (gameName) => {\r\n  try {\r\n    const res = await fetch(`${baseUrl}games/`, {\r\n      method: 'POST',\r\n      body: JSON.stringify({ name: gameName }),\r\n      headers: {\r\n        'Content-type': 'application/json; charset=UTF-8',\r\n      },\r\n    });\r\n    return await res.json();\r\n  } catch (error) {\r\n    return error;\r\n  }\r\n};\r\n\r\nconst getScores = async (gameId) => {\r\n  try {\r\n    const res = await fetch(`${baseUrl}games/${gameId}/scores/`);\r\n    return await res.json();\r\n  } catch (error) {\r\n    return error;\r\n  }\r\n};\r\n\r\nconst createScore = async (gameId, username, score) => {\r\n  try {\r\n    const res = await fetch(`${baseUrl}games/${gameId}/scores/`, {\r\n      method: 'POST',\r\n      body: JSON.stringify({\r\n        user: username,\r\n        score,\r\n      }),\r\n      headers: {\r\n        'Content-type': 'application/json; charset=UTF-8',\r\n      },\r\n    });\r\n    return await res.json();\r\n  } catch (error) {\r\n    return error;\r\n  }\r\n};\n\n//# sourceURL=webpack://micro-leaderboard/./src/modules/data.js?");
 
 /***/ })
 
@@ -147,6 +157,77 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _ass
 /******/ 	}
 /******/ 	
 /************************************************************************/
+/******/ 	/* webpack/runtime/async module */
+/******/ 	(() => {
+/******/ 		var webpackQueues = typeof Symbol === "function" ? Symbol("webpack queues") : "__webpack_queues__";
+/******/ 		var webpackExports = typeof Symbol === "function" ? Symbol("webpack exports") : "__webpack_exports__";
+/******/ 		var webpackError = typeof Symbol === "function" ? Symbol("webpack error") : "__webpack_error__";
+/******/ 		var resolveQueue = (queue) => {
+/******/ 			if(queue && !queue.d) {
+/******/ 				queue.d = 1;
+/******/ 				queue.forEach((fn) => (fn.r--));
+/******/ 				queue.forEach((fn) => (fn.r-- ? fn.r++ : fn()));
+/******/ 			}
+/******/ 		}
+/******/ 		var wrapDeps = (deps) => (deps.map((dep) => {
+/******/ 			if(dep !== null && typeof dep === "object") {
+/******/ 				if(dep[webpackQueues]) return dep;
+/******/ 				if(dep.then) {
+/******/ 					var queue = [];
+/******/ 					queue.d = 0;
+/******/ 					dep.then((r) => {
+/******/ 						obj[webpackExports] = r;
+/******/ 						resolveQueue(queue);
+/******/ 					}, (e) => {
+/******/ 						obj[webpackError] = e;
+/******/ 						resolveQueue(queue);
+/******/ 					});
+/******/ 					var obj = {};
+/******/ 					obj[webpackQueues] = (fn) => (fn(queue));
+/******/ 					return obj;
+/******/ 				}
+/******/ 			}
+/******/ 			var ret = {};
+/******/ 			ret[webpackQueues] = x => {};
+/******/ 			ret[webpackExports] = dep;
+/******/ 			return ret;
+/******/ 		}));
+/******/ 		__webpack_require__.a = (module, body, hasAwait) => {
+/******/ 			var queue;
+/******/ 			hasAwait && ((queue = []).d = 1);
+/******/ 			if(queue) queue.moduleId = module.id;
+/******/ 			var depQueues = new Set();
+/******/ 			var exports = module.exports;
+/******/ 			var currentDeps;
+/******/ 			var outerResolve;
+/******/ 			var reject;
+/******/ 			var promise = new Promise((resolve, rej) => {
+/******/ 				reject = rej;
+/******/ 				outerResolve = resolve;
+/******/ 			});
+/******/ 			promise[webpackExports] = exports;
+/******/ 			promise[webpackQueues] = (fn) => (queue && fn(queue), depQueues.forEach(fn), promise["catch"](x => {}));
+/******/ 			promise.moduleId = module.id;
+/******/ 			module.exports = promise;
+/******/ 			body((deps) => {
+/******/ 				currentDeps = wrapDeps(deps);
+/******/ 				var fn;
+/******/ 				var getResult = () => (currentDeps.map((d) => {
+/******/ 					if(d[webpackError]) throw d[webpackError];
+/******/ 					return d[webpackExports];
+/******/ 				}))
+/******/ 				var promise = new Promise((resolve) => {
+/******/ 					fn = () => (resolve(getResult));
+/******/ 					fn.r = 0;
+/******/ 					var fnQueue = (q) => (q !== queue && !depQueues.has(q) && (depQueues.add(q), q && !q.d && (fn.r++, q.push(fn))));
+/******/ 					currentDeps.map((dep) => (dep[webpackQueues](fnQueue)));
+/******/ 				});
+/******/ 				return fn.r ? promise : getResult();
+/******/ 			}, (err) => ((err ? reject(promise[webpackError] = err) : outerResolve(exports)), resolveQueue(queue)));
+/******/ 			queue && (queue.d = 0);
+/******/ 		};
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
 /******/ 		// getDefaultExport function for compatibility with non-harmony modules
