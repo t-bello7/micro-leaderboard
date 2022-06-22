@@ -1,40 +1,18 @@
-import path from 'path';
-import { fileURLToPath } from 'url';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
-const filename = fileURLToPath(import.meta.url);
-const dirname = path.dirname(filename);
-const config = {
+module.exports = {
   entry: './src/index.js',
-  resolve: {
-    fallback: {
-      fs: false,
-      tls: false,
-      net: false,
-      path: false,
-      zlib: false,
-      http: false,
-      https: false,
-      stream: false,
-      crypto: false,
-      util: false,
-      buffer: false,
-      url: false,
-      vm: false,
-      querystring: false,
-      os: false,
-      constants: false,
-      assert: false,
-    },
-  },
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html',
     }),
+    new BundleAnalyzerPlugin(),
   ],
   output: {
     filename: 'output.bundle.js',
-    path: path.resolve(dirname, 'dist'),
+    path: path.resolve(__dirname, 'dist'),
     clean: true,
   },
   module: {
@@ -51,4 +29,3 @@ const config = {
   },
   mode: 'development',
 };
-export default config;
