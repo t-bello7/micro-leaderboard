@@ -6,6 +6,9 @@ const scoreForm = document.querySelector('#score-form');
 const scoreContainer = document.querySelector('.score-container');
 const refershBtn = document.querySelector('#refresh-btn');
 
+let id = await createGame('game');
+id = id.result.slice(14, 34);
+
 const renderElements = (arr, container) => {
   container.innerHTML = '';
   arr.forEach((element) => {
@@ -19,14 +22,11 @@ const refreshScore = async (id) => {
   renderElements(scoreArr, scoreContainer);
 };
 
-let id = await createGame('game');
-id = id.result.slice(14, 34);
-id = 'DvwYcdsHxMwdVNMHWcIf';
-
 scoreForm.addEventListener('submit', async (e) => {
   const user = scoreForm.elements.name.value;
   const score = scoreForm.elements.score.value;
   await createScore(id, user, score);
+  scoreForm.reset();
   e.preventDefault();
 });
 
