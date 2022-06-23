@@ -8,14 +8,17 @@
 </head>
 <body>
     <h1>LeaderBoard</h1>
-    <ul>
-        <h2>Resent scores</h2> <button>referesh</button>
-        <li>Name: 100</li>
-    </ul>
-    <form action="">
+    <div>
+        <h2>Recent scores</h2> <button id="refresh-btn">referesh</button>
+        <ul class="score-container">
+            
+        </ul>
+    </div>
+  
+    <form id="score-form">
         <h2>Add your Score</h2>
         <input type="text" name="name" id="" placeholder="Your name">
-        <input type="text" name="score" id="" placeholder="Your Score">
+        <input type="number" name="score" id="" placeholder="Your Score">
         <button type="submit">Submit</button>
     </form>
 </body>
