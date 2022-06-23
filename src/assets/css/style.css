@@ -1,20 +1,20 @@
 :root {
-  --clr-primary: #FF8228;
-  --clr-white: #ffffff;
-  --clr-secondary: #D29E0C;
-  --clr-blue: #295EFF;
+  --clr-primary: #ff8228;
+  --clr-white: #fff;
+  --clr-secondary: #d29e0c;
+  --clr-blue: #295eff;
   --gap: 1rem;
 }
 
-.bg-primary { background-color: var(--clr-primary);}
-.bg-white {background-color: var(--clr-white);}
-.bg-secondary { background-color: var(--clr-secondary);}
-.bg-blue { background-color: var(--clr-blue);}
+.bg-primary { background-color: var(--clr-primary); }
+.bg-white { background-color: var(--clr-white); }
+.bg-secondary { background-color: var(--clr-secondary); }
+.bg-blue { background-color: var(--clr-blue); }
 
-.clr-primary { color: var(--clr-primary);}
-.clr-white { color: var(--clr-white);}
-.clr-secondary { color: var(--clr-secondary);}
-.clr-blue { color: var(--clr-blue);}
+.clr-primary { color: var(--clr-primary); }
+.clr-white { color: var(--clr-white); }
+.clr-secondary { color: var(--clr-secondary); }
+.clr-blue { color: var(--clr-blue); }
 
 * {
   margin: 0;
@@ -22,7 +22,7 @@
   color: inherit;
 }
 
-li{
+li {
   list-style-type: none;
 }
 
@@ -30,7 +30,6 @@ li{
   display: flex;
   gap: var(--gap);
 }
-
 
 .container {
   max-width: 50%;
