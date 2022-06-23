@@ -7,19 +7,24 @@
     <title>LeaderBoard</title>
 <script defer src="output.bundle.js"></script></head>
 <body>
-    <h1>LeaderBoard</h1>
-    <div>
-        <h2>Resent scores</h2> <button id="refresh-btn">referesh</button>
-        <ul class="score-container">
-            
-        </ul>
+    <div class="middle flex bg-primary clr-white">
+        <div>
+            <h1>LeaderBoard</h1>
+            <h2>Recent scores</h2>
+            <button class="btn refresh-btn">refresh</button>
+            <ul class="score-container">
+                
+            </ul>
+        </div>
+    
+        <form onsubmit="return false" class="score-form">
+            <h2>Add your Score</h2>
+            <label for="name">Your Name: </label>
+            <input class="clr-secondary" type="text" name="name" id="" placeholder="Name should not be empty"> </br>
+            <label for="score"> Your Score</label>
+            <input class="clr-secondary" type="number" name="score" id="" placeholder="Score should be a number">
+            <button type="submit" class="btn submit-btn">Submit</button>
+        </form>
     </div>
-  
-    <form action="" id="score-form">
-        <h2>Add your Score</h2>
-        <input type="text" name="name" id="" placeholder="Your name">
-        <input type="number" name="score" id="" placeholder="Your Score">
-        <button type="submit">Submit</button>
-    </form>
 </body>
 </html>
