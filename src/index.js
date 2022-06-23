@@ -23,11 +23,11 @@ const refreshScore = async (id) => {
 };
 
 scoreForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
   const user = scoreForm.elements.name.value;
   const score = scoreForm.elements.score.value;
   await createScore(id, user, score);
   scoreForm.reset();
-  e.preventDefault();
 });
 
 refreshScore(id);
