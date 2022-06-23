@@ -2,9 +2,9 @@
 import './assets/css/style.css';
 import { createGame, createScore, getScores } from './modules/data.js';
 
-const scoreForm = document.querySelector('#score-form');
+const scoreForm = document.querySelector('.score-form');
 const scoreContainer = document.querySelector('.score-container');
-const refershBtn = document.querySelector('#refresh-btn');
+const refershBtn = document.querySelector('.refresh-btn');
 
 let id = await createGame('game');
 id = id.result.slice(14, 34);
@@ -12,7 +12,7 @@ id = id.result.slice(14, 34);
 const renderElements = (arr, container) => {
   container.innerHTML = '';
   arr.forEach((element) => {
-    container.innerHTML += `<li>${element.user}:  ${element.score}</li>`;
+    container.innerHTML += `<li>  ${element.score} ${element.user} </li>`;
   });
 };
 
@@ -25,8 +25,13 @@ const refreshScore = async (id) => {
 scoreForm.addEventListener('submit', async (e) => {
   e.preventDefault();
   const user = scoreForm.elements.name.value;
+
   const score = scoreForm.elements.score.value;
-  await createScore(id, user, score);
+
+  if (user && score) {
+    await createScore(id, user, score);
+  }
+
   scoreForm.reset();
 });
 
