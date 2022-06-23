@@ -1,4 +1,72 @@
+:root {
+  --clr-primary: #FF8228;
+  --clr-white: #ffffff;
+  --clr-secondary: #D29E0C;
+  --clr-blue: #295EFF;
+  --gap: 1rem;
+}
+
+.bg-primary { background-color: var(--clr-primary);}
+.bg-white {background-color: var(--clr-white);}
+.bg-secondary { background-color: var(--clr-secondary);}
+.bg-blue { background-color: var(--clr-blue);}
+
+.clr-primary { color: var(--clr-primary);}
+.clr-white { color: var(--clr-white);}
+.clr-secondary { color: var(--clr-secondary);}
+.clr-blue { color: var(--clr-blue);}
+
 * {
   margin: 0;
   padding: 0;
+  color: inherit;
+}
+
+li{
+  list-style-type: none;
+}
+
+.flex {
+  display: flex;
+  gap: var(--gap);
+}
+
+
+.container {
+  max-width: 50%;
+  margin: 0 auto;
+}
+
+.center {
+  text-align: center;
+}
+
+.middle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  padding: var(--gap);
+}
+
+.btn {
+  border: none;
+  background-color: var(--clr-blue);
+  padding: 10px 20px;
+}
+
+.score-form > * {
+  margin-top: var(--gap);
+}
+
+.submit-btn {
+  display: block;
+}
+
+.score-container > * {
+  margin-top: var(--gap);
+  padding: 10px 20px;
+  border-radius: 1.6rem;
+  background-color: var(--clr-secondary);
 }
